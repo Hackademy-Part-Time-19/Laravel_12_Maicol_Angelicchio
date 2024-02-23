@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\article;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreArticleRequest;
 
 class ArticleController extends Controller
 {
@@ -12,7 +13,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles=Article::all();
+        return view ('article.index',['articles'=>$articles]);
     }
 
     /**
@@ -20,15 +22,17 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('article.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreArticleRequest $request)
     {
-        //
+        $validated=$request->validated();
+        Article::create($validated);
+        return redirect()->back()->with('success', 'articolo inserito');
     }
 
     /**
@@ -44,7 +48,7 @@ class ArticleController extends Controller
      */
     public function edit(article $article)
     {
-        //
+        //return view('article.modified',compact('article'))
     }
 
     /**
@@ -52,7 +56,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, article $article)
     {
-        //
+        //$article->update('title'=>$request->title);
     }
 
     /**
@@ -60,6 +64,7 @@ class ArticleController extends Controller
      */
     public function destroy(article $article)
     {
-        //
+        $article->delete();
+        return redirect()->back()->with('success', 'articolo eliminato');
     }
 }

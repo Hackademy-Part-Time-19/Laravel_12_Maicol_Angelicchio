@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class article extends Model
 {
     use HasFactory;
+    protected $fillable = ['title', 'category', 'description', 'category_id'];
 
     public function category(): BelogsTo
     {
