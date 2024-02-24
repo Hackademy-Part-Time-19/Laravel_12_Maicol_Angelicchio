@@ -70,4 +70,10 @@ class ArticleController extends Controller
         $article->delete();
         return redirect()->back()->with('success', 'articolo eliminato');
     }
+
+    public function byCategory(category $category){
+        dd($category);
+        $articleByCategory=Article::where('category', $category)->get();
+        return view('article.byCategory', ['articleByCategory'=>$articleByCategory]);
+    }
 }

@@ -20,3 +20,5 @@ Route::get('/', function(){
 
 Route::resource('category', CategoryController::class);
 Route::resource('article', ArticleController::class);
+
+Route::get('/articleByCategory/{category}', [ArticleController::class, 'byCategory'])->name('article.byCategory');

@@ -7,15 +7,24 @@
     <ul class="list-group list-group-flush">
         @foreach($categories as $category)
         <li class="list-group-item">{{$category['name']}}</li>
-        <div>
-            <button type="button" class="btn btn-warning">
-                <a href="{{ route('category.edit', ['category'=>$category->id])}}">Modified</a>
-            </button>
-            <form action=" {{ route('category.destroy', ['category'=>$category->id])}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
+        <div class="row">
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-warning">
+                    <a href="{{ route('category.edit', ['category'=>$category->id])}}">Modified</a>
+                </button>
+            </div>
+            <div class="col-sm-4">
+                <form action=" {{ route('category.destroy', ['category'=>$category->id])}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-success">
+                    <a href="{{ route('article.byCategory', ['category'=>$category->name])}}">Articoli</a>
+                </button>
+            </div>
         </div>
         @endforeach
     </ul>
