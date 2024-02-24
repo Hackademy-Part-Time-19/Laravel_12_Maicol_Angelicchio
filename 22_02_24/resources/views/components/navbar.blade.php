@@ -10,13 +10,7 @@
           <a class="nav-link active" aria-current="page" href="{{ route('category.index')}}">Categorie</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('category.create')}}">Inserisci categorie</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('article.index')}}">Articoli</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('article.create')}}">Inserisci articoli</a>
         </li>
       </ul>
     </div>

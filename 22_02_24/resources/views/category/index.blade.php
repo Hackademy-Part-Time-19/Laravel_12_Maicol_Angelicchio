@@ -1,5 +1,9 @@
 <x-main>
-    <h1>CATEGORIE</h1>
+    <div class="row">
+        <h1 class="col-sm">CATEGORIE</h1>
+        <button type="button" class="btn btn-primary col-sm"><a class="nav-link active" aria-current="page" href="{{ route('category.create')}}">Inserisci categorie</a></button>
+    </div>
+
     <ul class="list-group list-group-flush">
         @foreach($categories as $category)
         <li class="list-group-item">{{$category['name']}}</li>
