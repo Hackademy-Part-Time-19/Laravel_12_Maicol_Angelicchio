@@ -23,7 +23,7 @@ class StoreArticleRequest extends FormRequest
     {
         return [
             'title'=>'required|max:10',
-            'category'=>'required|max:10',
+            'category_id'=>'required',
             'description'=>'required|max:255'
         ];
     }
@@ -32,7 +32,7 @@ class StoreArticleRequest extends FormRequest
         return[
             'title.required'=>'Inserire nome articolo',
             'title.max'=>'Articolo può essere di massimo 10 caratteri',
-            'category.required'=>'Inserire categoria',
+            'category_id.required'=>'Inserire categoria',
             'title.max'=>'Categoria può essere di massimo 10 caratteri',
             'description.required'=>'Inserire descrizione',
             'description.max'=>'Descrizione può essere massimo di 255 caratteri'

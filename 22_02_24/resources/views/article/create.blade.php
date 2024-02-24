@@ -14,8 +14,13 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Categoria</label>
-            <input type="text" class="form-control" id="category" name="category">
-            @error('category')<div><span class="text-danger">{{$message}}</span></div>@enderror
+            <select calss="form-select" name="category_id" id="category_id">
+                <option selected>--scegli una categoria--</option>
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category['name']}}</option>
+                @endforeach
+            </select>
+            @error('category_id')<div><span class="text-danger">{{$message}}</span></div>@enderror
         </div>
         <div class="mb-3">
             <label class="form-label">Descrizione</label>

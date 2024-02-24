@@ -5,15 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Category;
 
 class article extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'category', 'description', 'category_id'];
+    protected $fillable = ['title', 'description', 'category_id'];
 
-    public function category(): BelogsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(category::class);
+        return $this->belongsTo(Category::class);
     }
 
 }
