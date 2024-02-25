@@ -72,8 +72,12 @@ class ArticleController extends Controller
     }
 
     public function byCategory(category $category){
-        dd($category);
-        $articleByCategory=Article::where('category', $category)->get();
-        return view('article.byCategory', ['articleByCategory'=>$articleByCategory]);
+        $articleByCategory=Article::where('category_id', $category->id)->get();
+        $categoryName = $category->name;
+        return view('article.byCategory',
+        [
+            'articleByCategory'=>$articleByCategory,
+            'categoryName'=>$categoryName,
+        ]);
     }
 }

@@ -1,12 +1,10 @@
 <x-main>
 
-    <h1 class="col-sm">ARTICOLI PER CATEGORIA</h1>
+    <h1 class="col-sm">ARTICOLI PER CATEGORIA: {{$categoryName}}</h1>
 
     <ul class="list-group list-group-flush">
         @foreach($articleByCategory as $article)
-        <li class="list-group-item">Articolo: {{$article['title']}}</li>
-        <li class="list-group-item">Categoria: {{$article->category->name}}</li>
-        <li class="list-group-item">Descrizione: {{$article['description']}}</li>
+        <li class="list-group-item">{{$article['title']}}</li>
         <div>
             <button type="button" class="btn btn-warning">
                 <a href="{{ route('article.edit', ['article'=>$article->id])}}">Modified</a>

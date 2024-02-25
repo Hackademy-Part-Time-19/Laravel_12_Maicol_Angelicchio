@@ -22,7 +22,7 @@
             </div>
             <div class="col-sm-4">
                 <button type="button" class="btn btn-success">
-                    <a href="{{ route('article.byCategory', ['category'=>$category->name])}}">Articoli</a>
+                    <a href="{{ route('byCategory', ['category'=>$category])}}">Articoli</a>
                 </button>
             </div>
         </div>
