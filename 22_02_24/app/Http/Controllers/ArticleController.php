@@ -6,6 +6,7 @@ use App\Models\article;
 use App\Models\category;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreArticleRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -33,8 +34,11 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
+        $user = Auth::user();
         $validated=$request->validated();
-        Article::create($validated);
+        $article = $user->articles()->create($validated);
+        $article->user_id=auth()->user()->id;
+        $article->save();
         return redirect()->back()->with('success', 'articolo inserito');
     }
 
