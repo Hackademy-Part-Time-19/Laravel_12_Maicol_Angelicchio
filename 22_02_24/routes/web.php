@@ -18,7 +18,8 @@ Route::get('/', function(){
     return view('index');
 })->name('index');
 
-Route::resource('category', CategoryController::class);
-Route::resource('article', ArticleController::class);
-
-Route::get('/byCategory/{category}', [ArticleController::class, 'byCategory'])->name('byCategory');
+Route::middleware('auth')->group(function(){
+    Route::resource('category', CategoryController::class);
+    Route::resource('article', ArticleController::class);
+    Route::get('/byCategory/{category}', [ArticleController::class, 'byCategory'])->name('byCategory');
+});

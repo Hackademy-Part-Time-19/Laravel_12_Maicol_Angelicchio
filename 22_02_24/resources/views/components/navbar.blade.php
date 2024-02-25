@@ -6,12 +6,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+        @auth
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('category.index')}}">Categorie</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('article.index')}}">Articoli</a>
         </li>
+        @endauth
+        @guest
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ route('register')}}">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ route('login')}}">Login</a>
+        </li>
+        @endguest
       </ul>
     </div>
   </div>

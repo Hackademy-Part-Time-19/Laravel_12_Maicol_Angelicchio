@@ -1,3 +1,3 @@
 <x-main>
-    <h1>BENVENUTO</h1>
+    <h1>BENVENUTO {{auth()->user()->name}}</h1>
 </x-main>
